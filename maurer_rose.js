@@ -7,11 +7,11 @@ class maurer_rose{
         this.n = n
         this.size = size
         this.counter = 0
-        this.angle = Math.PI/360
+        this.angle = Math.PI/180
         this.last = {x: 0 , y:0}
         this.points = []
         this.path = []
-        this.pathlength = 50
+        this.pathlength = 40
         this.particles = []
     }
 
@@ -60,7 +60,7 @@ class maurer_rose{
         if(this.path.length < this.pathlength){
 
             this.path.push({x: this.points[this.counter].x  , y: this.points[this.counter].y })
-            this.CreateParticles( this.points[this.counter].x ,  this.points[this.counter].y , "hsl(" + this.counter*6 + ",100%,50%)" , 5)
+            this.CreateParticles( this.points[this.counter].x ,  this.points[this.counter].y , "hsl(" + this.counter * 6 + ",100%,50%)" , 5)
           
 
         }else{
