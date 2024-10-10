@@ -83,7 +83,7 @@ class maurer_rose{
 
     CreateParticles(x , y , color , size){
 
-        var amount = Math.floor(Math.random() * 10)
+        var amount = Math.floor(Math.random() * 80)
 
         for(var i = 0 ; i < amount ; i++){
 
