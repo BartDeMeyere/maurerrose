@@ -18,6 +18,9 @@ rose3.getpoints()
 var rose4 = new maurer_rose(canvas.width / 2 , canvas.height/2 , 2 , 1000)
 rose4.getpoints()
 
+var rose5 = new maurer_rose(canvas.width / 2 , canvas.height/2 , 2 , 100)
+rose5.getpoints()
+
 RenderCanvas()
 
 function RenderCanvas(){
@@ -36,6 +39,9 @@ function RenderCanvas(){
 
     rose4.drawParticles()
     rose4.draw()
+
+    rose5.drawParticles()
+    rose5.draw()
 
 
    requestAnimationFrame(RenderCanvas)

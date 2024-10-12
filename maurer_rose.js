@@ -87,26 +87,53 @@ class maurer_rose{
 
         for(var i = 0 ; i < amount ; i++){
 
-            this.particles.push(new Particle(x,y,size,color))
+            this.particles.push({x:x , y:y , color:color , size:size , opacity:1 , velx:this.random(-.6,.6) , vely:this.random(-.6,.6)})
         }
 
     }
 
     drawParticles(){
 
-        this.particles.forEach((particle,index) => {
+        for(var i = 0 ; i < this.particles.length ; i++){
 
-            if(particle.opacity > 0){
+            if(this.particles[i].opacity > 0){
 
-                particle.draw()
-                particle.move()
+                //draw
+                c.save()
+                c.beginPath()
+                c.fillStyle = this.particles[i].color
+                c.globalAlpha = this.particles[i].opacity
+                c.arc(this.particles[i].x , this.particles[i].y , this.particles[i].size/2 , 0 , 2 * Math.PI)
+                c.fill()
+                c.closePath()
+                c.restore()
+
+                //move
+                this.particles[i].x += this.particles[i].velx 
+                this.particles[i].y += this.particles[i].vely
+        
+                if(this.particles[i].opacity > .0051){
+        
+                    this.particles[i].opacity -= .005
+        
+                }else{
+        
+                    this.particles[i].opacity = 0
+                }
 
             }else{
 
-                this.particles.splice(index , 1)
+                this.particles.splice(i , 1)
             }
+
            
-        })
+        }
+    }
+
+    random(min,max){
+
+        return min + Math.random() * (max-min)
+        
     }
 
 }
